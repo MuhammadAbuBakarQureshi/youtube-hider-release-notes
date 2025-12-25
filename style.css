@@ -1,4 +1,4 @@
-/* Reset some default styles */
+/* Reset */
 * {
     margin: 0;
     padding: 0;
@@ -6,20 +6,21 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f4f9;
     color: #333;
     line-height: 1.6;
-    padding: 20px;
 }
 
+/* Header */
 header {
     text-align: center;
-    margin-bottom: 30px;
+    padding: 40px 20px 20px 20px;
 }
 
 header h1 {
-    font-size: 2rem;
+    font-size: 2.5rem;
+    color: #ff0000; /* YouTube red theme */
     margin-bottom: 10px;
 }
 
@@ -28,24 +29,32 @@ header p {
     color: #666;
 }
 
+/* Main content */
 main {
     max-width: 800px;
     margin: auto;
+    padding: 0 20px 40px 20px;
 }
 
+/* Version card */
 .version {
     background: #fff;
-    border-left: 5px solid #4CAF50;
-    padding: 15px 20px;
+    border-left: 6px solid #ff0000;
+    padding: 20px;
     margin-bottom: 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    position: relative;
+    transition: transform 0.2s ease;
+}
+
+.version:hover {
+    transform: translateY(-3px);
 }
 
 .version h2 {
+    font-size: 1.3rem;
     margin-bottom: 10px;
-    font-size: 1.2rem;
-    color: #4CAF50;
 }
 
 .version ul {
@@ -53,9 +62,38 @@ main {
     margin-left: 20px;
 }
 
+/* Latest badge */
+.version.latest::before {
+    content: "Latest";
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: #ff0000;
+    color: #fff;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+/* Footer */
 footer {
     text-align: center;
-    margin-top: 40px;
+    padding: 20px;
     font-size: 0.9rem;
     color: #999;
+    border-top: 1px solid #ddd;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    main {
+        padding: 0 10px 30px 10px;
+    }
+    .version {
+        padding: 15px;
+    }
+    header h1 {
+        font-size: 2rem;
+    }
 }
