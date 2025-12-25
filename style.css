@@ -1,99 +1,119 @@
-/* Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+:root {
+    --bg-color: #0f0f0f;
+    --card-bg: #1a1a1a;
+    --card-hover-bg: #222222;
+    --primary-red: #ff0000;
+    --text-main: #ffffff;
+    --text-secondary: #aaaaaa;
+    --border-color: #2d2d2d;
+    --transition-speed: 0.25s;
 }
 
 body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    /* Roboto is the standard YouTube font */
     font-family: 'Roboto', sans-serif;
-    background-color: #f4f4f9;
-    color: #333;
-    line-height: 1.6;
+    margin: 0;
+    padding: 60px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-/* Header */
 header {
     text-align: center;
-    padding: 40px 20px 20px 20px;
+    margin-bottom: 50px;
 }
 
-header h1 {
-    font-size: 2.5rem;
-    color: #ff0000; /* YouTube red theme */
+h1 {
+    color: var(--primary-red);
+    font-size: 2.8rem;
     margin-bottom: 10px;
+    font-weight: 900;
+    letter-spacing: -0.5px;
 }
 
 header p {
-    font-size: 1rem;
-    color: #666;
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    font-weight: 400;
 }
 
-/* Main content */
-main {
+.container {
+    width: 100%;
     max-width: 800px;
-    margin: auto;
-    padding: 0 20px 40px 20px;
 }
 
-/* Version card */
-.version {
-    background: #fff;
-    border-left: 6px solid #ff0000;
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    position: relative;
-    transition: transform 0.2s ease;
+/* --- Card Styles --- */
+.release-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-left: 5px solid var(--primary-red);
+    border-radius: 12px;
+    padding: 24px 30px;
+    margin-bottom: 24px;
+    cursor: default;
+    transition: all var(--transition-speed) ease;
 }
 
-.version:hover {
-    transform: translateY(-3px);
+/* --- Hover Effect --- */
+.release-card:hover {
+    background-color: var(--card-hover-bg);
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+    border-color: #444;
 }
 
-.version h2 {
-    font-size: 1.3rem;
-    margin-bottom: 10px;
+.version-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
 }
 
-.version ul {
+.version-title {
+    color: var(--primary-red);
+    font-weight: 700;
+    font-size: 1.4rem;
+}
+
+.version-date {
+    color: var(--text-secondary);
+    font-weight: 400;
+    font-size: 1.1rem;
+    margin-left: 5px;
+}
+
+.tag-latest {
+    background-color: var(--primary-red);
+    color: white;
+    font-size: 0.7rem;
+    font-weight: 900;
+    padding: 4px 10px;
+    border-radius: 4px;
+    text-transform: uppercase;
+}
+
+.change-list {
     list-style-type: disc;
     margin-left: 20px;
+    padding: 0;
+    color: #dddddd;
 }
 
-/* Latest badge */
-.version.latest::before {
-    content: "Latest";
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    background: #ff0000;
-    color: #fff;
-    padding: 3px 8px;
-    border-radius: 4px;
-    font-size: 0.8rem;
-    font-weight: 500;
+.change-list li {
+    margin-bottom: 10px;
+    font-size: 1rem;
+    line-height: 1.5;
 }
 
-/* Footer */
+.change-list li strong {
+    color: var(--text-main);
+}
+
 footer {
-    text-align: center;
-    padding: 20px;
-    font-size: 0.9rem;
-    color: #999;
-    border-top: 1px solid #ddd;
-}
-
-/* Responsive */
-@media (max-width: 600px) {
-    main {
-        padding: 0 10px 30px 10px;
-    }
-    .version {
-        padding: 15px;
-    }
-    header h1 {
-        font-size: 2rem;
-    }
+    margin-top: 60px;
+    color: #555555;
+    font-size: 0.85rem;
 }
